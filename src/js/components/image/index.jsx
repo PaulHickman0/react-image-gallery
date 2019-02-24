@@ -7,13 +7,15 @@ import 'react-image-lightbox/style.css';
 export default class Image extends PureComponent {
     // Prop types
     static propTypes = {
-        id: PropTypes.string,
+        title: PropTypes.string,
+        url: PropTypes.string,
         thumbnailUrl:  PropTypes.string,
     };
 
     // Default props
     static defaultProps = {
-        id: '',
+        title: '',
+        url: '',
         thumbnailUrl: '',
     };
 
@@ -25,13 +27,17 @@ export default class Image extends PureComponent {
         this.togglePreview = this.togglePreview.bind(this);
     }
 
+    /**
+     * Toggle preview state for image
+     * Sets state to opne up Lightbox
+     */
     togglePreview() {
         this.setState({ isPreviewMode: !this.state.isPreviewMode })
     }
 
     render() {
 
-        const { id, title, thumbnailUrl, url } = this.props;
+        const { title, thumbnailUrl, url } = this.props;
         const { isPreviewMode } = this.state;
 
         return (
