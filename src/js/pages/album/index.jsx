@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import { getAlbums } from 'store/actions';
-import Album from 'components/album';
-import './home.scss';
+import './album.scss';
 
 /**
- * Home page component
+ * Album page component
  * 
- * @class Home
+ * @class Album
  * @extends { Component }
  */
-export class Home extends Component {
+export class Album extends Component {
 
     // Prop types
     static propTypes = {
@@ -35,31 +34,41 @@ export class Home extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.getAlbums();
+
+        if (!Object.keys(this.props.albums).length) {
+            this.props.getAlbums();
+        }
+        
+    }
+
+    /**
+     * Gets images belponging to a specific album ID 
+     * @param  {Number} id   ID of album
+     * @return {Array}       Array of images belonging to given album
+     */
+    getAlbumImages(id) {
+        return this.props.albums[id] || [];
     }
 
     render() {
 
-        const { albums, isLoading, error } = this.props;
+        const { isLoading, error, match = {} } = this.props;
+        const { albumId = 'Unknown' } = match.params;
+        const images = this.getAlbumImages(albumId);
 
         return (
-            <div className="home">
-                <h1>Image Gallery</h1>
-                <div className="home__gallery">
+            <div className="album">
+                <h1>{`Album ${albumId}`}</h1>
+                <div className="album__list">
                     {isLoading && (
                         <div> LOADING </div>
                     )}
                     {error && (
                         <div> ERROR </div>
                     )}
-                    {!!Object.keys(albums).length && (
-                        Object.entries(albums).map(([albumId, images]) => (
-                            <Album
-                                key={`album_${albumId}`}
-                                id={albumId}
-                                images={images}
-                                thumbnail={images[0].thumbnailUrl}
-                            />
+                    {!!images.length && (
+                        images.map(image => (
+                            <div>{image.id}</div>
                         ))
                     )}
                 </div>
@@ -78,4 +87,4 @@ const mapDispatchToProps = (dispatch) => ({
     getAlbums: () => dispatch(getAlbums())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Album)

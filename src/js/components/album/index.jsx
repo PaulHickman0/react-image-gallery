@@ -1,9 +1,10 @@
 import './album.scss';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom'
 
 
-export default class Footer extends PureComponent {
+export class Footer extends PureComponent {
     // Prop types
     static propTypes = {
 
@@ -20,6 +21,11 @@ export default class Footer extends PureComponent {
         super(props);
     }
 
+    navigateToAlbum(id) {
+        console.log(this.props)
+        this.props.history.push(`/album/${id}`)
+    }
+
     render() {
 
         const { id, thumbnail } = this.props;
@@ -27,10 +33,15 @@ export default class Footer extends PureComponent {
         return (
             <div className="c-album">
                 <h3>{`Album ${id}`}</h3>
-                <div className="c-album__thumb">
+                <div
+                    className="c-album__thumb"
+                    onClick={() => this.navigateToAlbum(id)}
+                >
                     <img src={thumbnail} />
                 </div>
             </div>
         );
     }
 }
+
+export default withRouter(Footer);
