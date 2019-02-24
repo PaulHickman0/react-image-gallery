@@ -9,20 +9,22 @@ export class CAlbum extends PureComponent {
     static propTypes = {
         id: PropTypes.string,
         thumbnail: PropTypes.string,
-        images: PropTypes.array,
     };
 
     // Default props
     static defaultProps = {
         id: '',
         thumbnail: '',
-        images: [],
     };
 
     constructor(props) {
         super(props);
     }
 
+    /**
+     * Pushes new route to navigate browser to a specific album
+     * @param  {Number} id   Id of album to navigate to
+     */
     navigateToAlbum(id) {
         console.log(this.props)
         this.props.history.push(`/album/${id}`)

@@ -1,6 +1,12 @@
 import * as types from '../constants/action-types';
 import { requestGET } from 'services/requests';
 
+/**
+ * Make request to get images
+ * Sorts images into albums
+ * Limits images to 300
+ * @return {Object}
+ */
 export const getAlbums = () => {
     return {
         type: types.GET_ALBUMS,
