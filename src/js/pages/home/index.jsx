@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import { getAlbums } from 'store/actions';
+import Album from 'components/album';
 import './home.scss';
 
 /**
@@ -15,7 +16,7 @@ export class Home extends Component {
     // Prop types
     static propTypes = {
         getAlbums: PropTypes.func,
-        albums: PropTypes.array,
+        albums: PropTypes.object,
         isLoading: PropTypes.bool,
         error: PropTypes.bool,
     };
@@ -40,9 +41,10 @@ export class Home extends Component {
     render() {
 
         const { albums, isLoading, error } = this.props;
-
+        console.log('HERE', Object.entries(albums))
         return (
             <div className="c-home">
+                <h1>Image Gallery</h1>
                 <div className="c-home__gallery">
                     {isLoading && (
                         <div> LOADING </div>
@@ -50,23 +52,30 @@ export class Home extends Component {
                     {error && (
                         <div> ERROR </div>
                     )}
-                    {!!albums.length && (
-                        <div>{`HAS ${albums.length} albums`}</div>
-                )}
+                    {!!Object.keys(albums).length && (
+                        Object.entries(albums).map(([albumId, images]) => (
+                            <Album
+                                key={`album_${albumId}`}
+                                id={albumId}
+                                images={images}
+                                thumbnail={images[0].thumbnailUrl}
+                            />
+                        ))
+                    )}
                 </div>
             </div>
         );
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
     albums: state.gallery.albums,
     isLoading: state.gallery.isLoading,
     error: state.gallery.error,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
     getAlbums: () => dispatch(getAlbums())
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

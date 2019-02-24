@@ -1,0 +1,81 @@
+@import '~scss/variables';
+
+@mixin shadow() {
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees + deg);
+    -moz-transform: rotate($degrees + deg);
+    -o-transform: rotate($degrees + deg);
+    -ms-transform: rotate($degrees + deg);
+    transform: rotate($degrees + deg);
+}
+
+.c-album {
+    justify-self: stretch;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    h3 {
+        margin-bottom: 8px;
+        margin-left: 10px;
+    }
+
+    @for $i from 1 through 300 {
+        &:nth-child(#{$i}) .c-album__thumb:before {
+            @include rotate(random(4) + 1); 
+        }
+        &:nth-child(#{$i}) .c-album__thumb:after {
+            @include rotate(- + random(4) + 1); 
+        }
+    }
+}
+
+.c-album__thumb {
+    width: 100%;
+    position: relative;
+
+    img {
+        width: 90%;
+        border: 6px solid #fff;
+        margin: 5%;
+        @include shadow();
+        position: relative;
+        z-index: 99;
+        transition-duration: .3s;
+        background: #fff;
+    }
+
+    &:hover {
+        img {
+            -webkit-transform: scale(1.1) rotate(-3deg);
+            -moz-transform: scale(1.1) rotate(-3deg);
+            -o-transform: scale(1.1) rotate(-3deg);
+            -ms-transform: scale(1.1) rotate(-3deg);
+            transform: scale(1.1) rotate(-3deg);
+        }
+    }
+
+    &:before, &:after {
+        content: '';
+        width: 85%;
+        height: 85%;
+        background: #999;
+        border: 6px solid #fff;
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        @include shadow();
+    }
+
+    &:before {
+        z-index: 9;        
+    }
+
+    &:after {
+        z-index: 10;
+    }
+}

@@ -2,7 +2,7 @@ import { handle } from 'redux-pack';
 import * as types from '../constants/action-types';
 
 const initialState = {
-    albums: [],
+    albums: {},
     isLoading: false,
     error: true,
 };

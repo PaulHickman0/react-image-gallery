@@ -34,43 +34,43 @@ describe('Actions', () => {
             test('All images present with album IDs', done => {
 
                 const data = [{
-                    albumID: 1,
+                    albumId: 1,
                     id: 1,
                     title: "Title 1",
                     url: 'test_url_1',
                     thumbnailUrl: 'thumb_1'
                 },{
-                    albumID: 2,
+                    albumId: 2,
                     id: 2,
                     title: "Title 2",
                     url: 'test_url_2',
                     thumbnailUrl: 'thumb_2'
                 },{
-                    albumID: 3,
+                    albumId: 3,
                     id: 3,
                     title: "Title 3",
                     url: 'test_url_3',
                     thumbnailUrl: 'thumb_3'
                 },{
-                    albumID: 1,
+                    albumId: 1,
                     id: 4,
                     title: "Title 4",
                     url: 'test_url_4',
                     thumbnailUrl: 'thumb_4'
                 }, {
-                    albumID: 1,
+                    albumId: 1,
                     id: 5,
                     title: "Title 5",
                     url: 'test_url_5',
                     thumbnailUrl: 'thumb_5'
                 }, {
-                    albumID: 3,
+                    albumId: 3,
                     id: 6,
                     title: "Title 6",
                     url: 'test_url_6',
                     thumbnailUrl: 'thumb_6'
                 }, {
-                    albumID: 3,
+                    albumId: 3,
                     id: 7,
                     title: "Title 7",
                     url: 'test_url_7',
@@ -132,19 +132,19 @@ describe('Actions', () => {
             test('Some images without album IDs', done => {
 
                 const data = [{
-                    albumID: 1,
+                    albumId: 1,
                     id: 1,
                     title: "Title 1",
                     url: 'test_url_1',
                     thumbnailUrl: 'thumb_1'
                 },{
-                    albumID: 2,
+                    albumId: 2,
                     id: 2,
                     title: "Title 2",
                     url: 'test_url_2',
                     thumbnailUrl: 'thumb_2'
                 },{
-                    albumID: 3,
+                    albumId: 3,
                     id: 3,
                     title: "Title 3",
                     url: 'test_url_3',
@@ -155,13 +155,13 @@ describe('Actions', () => {
                     url: 'test_url_4',
                     thumbnailUrl: 'thumb_4'
                 }, {
-                    albumID: 1,
+                    albumId: 1,
                     id: 5,
                     title: "Title 5",
                     url: 'test_url_5',
                     thumbnailUrl: 'thumb_5'
                 }, {
-                    albumID: 3,
+                    albumId: 3,
                     id: 6,
                     title: "Title 6",
                     url: 'test_url_6',

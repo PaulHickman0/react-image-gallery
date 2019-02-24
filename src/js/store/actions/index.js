@@ -6,9 +6,9 @@ export const getAlbums = () => {
         type: types.GET_ALBUMS,
         promise: requestGET('https://jsonplaceholder.typicode.com/photos').then((images = []) => {
             const albums = {};
-            images.forEach(({albumID = 'unknown', ...image}) => {
-                albums[albumID] = albums[albumID] || [];
-                albums[albumID].push(image);
+            images.forEach(({albumId = 'unknown', ...image}) => {
+                albums[albumId] = albums[albumId] || [];
+                albums[albumId].push(image);
             });
             return albums;
         }),
