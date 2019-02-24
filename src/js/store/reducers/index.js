@@ -2,13 +2,13 @@ import { handle } from 'redux-pack';
 import * as types from '../constants/action-types';
 
 const initialState = {
-    images: [],
+    albums: [],
     isLoading: false,
     error: true,
 };
 
 const mutations = {
-    [types.GET_IMAGES]: (state = initialState, action) => {
+    [types.GET_ALBUMS]: (state = initialState, action) => {
         return handle(state, action, {
             start: prevState => ({
               ...prevState,
@@ -17,7 +17,7 @@ const mutations = {
             }),
             finish: prevState => ({ ...prevState, isLoading: false }),
             failure: prevState => ({ ...prevState, error: true }),
-            success: prevState => ({ ...prevState, images: action.payload }),
+            success: prevState => ({ ...prevState, albums: action.payload }),
         });
     }
 };
