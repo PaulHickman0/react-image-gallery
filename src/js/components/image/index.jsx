@@ -36,7 +36,7 @@ export default class Image extends PureComponent {
 
         return (
             <div className="c-image">
-                <h6>{`${title}`}</h6>
+                <h5>{`${title}`}</h5>
                 <img src={thumbnailUrl} onClick={this.togglePreview} />
                 {isPreviewMode && (
                     <Lightbox
