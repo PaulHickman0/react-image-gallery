@@ -11,6 +11,9 @@
   "author": "Paul Hickman",
   "license": "ISC",
   "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/setup.js"
+    ],
     "moduleFileExtensions": [
       "js",
       "jsx",
@@ -25,14 +28,16 @@
       "text",
       "html"
     ],
+    "moduleNameMapper":{
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    },
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "tests",
       "/src/js/react/components/",
       "/src/js/react/pages/",
       "src/js/react/store/",
-      "src/js/react/services/",
-      "src/js/react/components-v2/icon/icons/"
+      "src/js/react/services/"
     ]
   },
   "devDependencies": {

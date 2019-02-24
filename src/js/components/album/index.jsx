@@ -26,7 +26,6 @@ export class CAlbum extends PureComponent {
      * @param  {Number} id   Id of album to navigate to
      */
     navigateToAlbum(id) {
-        console.log(this.props)
         this.props.history.push(`/album/${id}`)
     }
 
