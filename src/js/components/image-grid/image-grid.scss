@@ -2,6 +2,9 @@
 
 .c-image-grid {
     padding: 12px 36px;
+}
+
+.c-image-grid__images {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -15,5 +18,14 @@
     @media only screen and (max-width: $mobile) {
         grid-template-columns: 1fr;
     }
+}
 
+.c-image-grid__info {
+    padding: 24px 0;
+    width: 100%;
+    text-align: center;
+
+    i {
+        font-size: 60px;
+    }
 }

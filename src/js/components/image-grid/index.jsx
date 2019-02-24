@@ -27,7 +27,21 @@ export default class ImageGrid extends PureComponent {
 
         return (
             <div className={`c-image-grid ${className}`}>
-                {!isLoading && !error && children}
+                {!isLoading && !error && (
+                    <div className="c-image-grid__images">
+                        {children}
+                    </div>
+                )}
+                {(isLoading || error) && (
+                    <div className="c-image-grid__info">
+                        {isLoading && (
+                            <i className="fas fa-spinner fa-spin" />
+                        )}
+                        {error && (
+                            <h5>Sorry, there was an error loading the images</h5>
+                        )}
+                    </div>
+                )}
             </div>
         );
     }
