@@ -1,1 +1,1 @@
-export const SET_IMAGES = 'SET_IMAGES';
+export const GET_IMAGES = 'GET_IMAGES';

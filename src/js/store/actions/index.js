@@ -1,6 +1,9 @@
-export const setImages = images => {
+import * as types from '../constants/action-types';
+import { requestGET } from 'services/requests';
+
+export const getImages = () => {
     return {
-        type: types.SET_IMAGES,
-        payload: images
+        type: types.GET_IMAGES,
+        promise: requestGET('https://jsonplaceholder.typicode.com/photos?thisg'),
     };
-};
+}
