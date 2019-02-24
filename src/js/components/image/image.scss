@@ -3,10 +3,24 @@
 
 
 .c-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
     img {
         border: 6px solid #fff;
         width: 100%;
         margin-top: 6px;
         @include shadow();
+        cursor: pointer;
+        transition-duration: .3s;
+
+        &:hover {
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            -o-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            transform: scale(1.05);
+        }
     }
 }

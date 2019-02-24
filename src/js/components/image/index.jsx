@@ -1,6 +1,8 @@
 import './image.scss';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 export default class Image extends PureComponent {
     // Prop types
@@ -17,16 +19,31 @@ export default class Image extends PureComponent {
 
     constructor(props) {
         super(props);
+        this.state = {
+            isPreviewMode: false,
+        };
+        this.togglePreview = this.togglePreview.bind(this);
+    }
+
+    togglePreview() {
+        this.setState({ isPreviewMode: !this.state.isPreviewMode })
     }
 
     render() {
 
-        const { id, thumbnailUrl } = this.props;
+        const { id, title, thumbnailUrl, url } = this.props;
+        const { isPreviewMode } = this.state;
 
         return (
             <div className="c-image">
-                <h4>{`Image ${id}`}</h4>
-                <img src={thumbnailUrl} />
+                <h6>{`${title}`}</h6>
+                <img src={thumbnailUrl} onClick={this.togglePreview} />
+                {isPreviewMode && (
+                    <Lightbox
+                        mainSrc={url}
+                        onCloseRequest={this.togglePreview}
+                    />
+                )}
             </div>
         );
     }

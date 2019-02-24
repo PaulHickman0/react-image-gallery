@@ -5,7 +5,7 @@ module.exports = {
     devtool: 'cheap-module-source-map',
     module: {
         rules: [{
-            test: /\.scss$/,
+            test: /\.s?css$/,
             exclude: /node_modules/,
             loader: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
