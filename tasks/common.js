@@ -45,12 +45,9 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.jsx?$/,         // Match both .js and .jsx files
-            exclude: /node_modules/, 
-            loader: "babel-loader", 
-            query: {
-                presets:['es2015', 'stage-0', 'react']
-            }  
+            test: /\.(js|jsx)$/,
+            loader: 'happypack/loader',
+            exclude: /node_modules/   
         }, {
             include: /\.json$/,
             loaders: ['json-loader']

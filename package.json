@@ -10,7 +10,32 @@
   },
   "author": "Paul Hickman",
   "license": "ISC",
-  "dependencies": {
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "moduleDirectories": [
+      "<rootDir>/src/js/",
+      "node_modules"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "tests",
+      "/src/js/react/components/",
+      "/src/js/react/pages/",
+      "src/js/react/store/",
+      "src/js/react/services/",
+      "src/js/react/components-v2/icon/icons/"
+    ]
+  },
+  "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^21.2.0",
@@ -34,17 +59,28 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
+    "fetch-mock": "^7.3.0",
     "file-loader": "^0.11.2",
     "happypack": "^4.0.0-beta.5",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^4.3.1",
+    "jest": "^21.2.1",
     "json-loader": "^0.5.7",
     "loader-utils": "^1.1.0",
     "node-sass": "^4.5.3",
+    "react-hot-loader": "^3.1.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2",
+    "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-hot-loader": "^3.1.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -53,12 +89,6 @@
     "redux": "^3.7.2",
     "redux-pack": "^0.1.5",
     "redux-thunk": "^2.2.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.5.5",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-middleware": "^1.12.0",
-    "webpack-hot-middleware": "^2.18.2",
-    "webpack-merge": "^4.1.0"
+    "reselect": "^3.0.1"
   }
 }
