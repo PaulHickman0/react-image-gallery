@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default class FormatLayout extends PureComponent {
     // Prop types
     static propTypes = {
-
+        className: PropTypes.string
     };
 
     // Default props

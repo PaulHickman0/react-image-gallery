@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getAlbums } from 'store/actions';
 import FormatLayout from 'components/format-layout';
 import ImageGrid from 'components/image-grid';
+import Image from 'components/image';
 import './album.scss';
 
 /**
@@ -76,9 +77,7 @@ export class Album extends Component {
                         error={error}
                     >
                         {!!images.length && (
-                            images.map(image => (
-                                <div>{image.id}</div>
-                            ))
+                            images.map(image => <Image key={image.id} {...image} />)
                         )}
                     </ImageGrid>
                 </FormatLayout>

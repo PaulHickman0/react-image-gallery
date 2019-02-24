@@ -1,18 +1,5 @@
 @import '~scss/variables';
-
-@mixin shadow() {
-    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-}
-
-@mixin rotate($degrees) {
-    -webkit-transform: rotate($degrees + deg);
-    -moz-transform: rotate($degrees + deg);
-    -o-transform: rotate($degrees + deg);
-    -ms-transform: rotate($degrees + deg);
-    transform: rotate($degrees + deg);
-}
+@import '~scss/mixins';
 
 .c-album {
     justify-self: stretch;

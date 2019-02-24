@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom'
 
 
-export class Footer extends PureComponent {
+export class CAlbum extends PureComponent {
     // Prop types
     static propTypes = {
-
+        id: PropTypes.string,
+        thumbnail: PropTypes.string,
+        images: PropTypes.array,
     };
 
     // Default props
@@ -44,4 +46,4 @@ export class Footer extends PureComponent {
     }
 }
 
-export default withRouter(Footer);
+export default withRouter(CAlbum);

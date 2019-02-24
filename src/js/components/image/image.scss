@@ -1,0 +1,12 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+
+.c-image {
+    img {
+        border: 6px solid #fff;
+        width: 100%;
+        margin-top: 6px;
+        @include shadow();
+    }
+}
