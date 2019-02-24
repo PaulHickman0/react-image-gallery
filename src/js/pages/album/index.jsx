@@ -67,7 +67,7 @@ export class Album extends Component {
                     <h1>{`Album ${albumId}`}</h1>
                     <Link   
                         to='/'
-                        className='o-link'
+                        className='album__back o-link'
                     >
                         {`< Back to Albums`}
                     </Link>
