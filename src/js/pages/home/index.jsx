@@ -26,7 +26,7 @@ export class Home extends Component {
     // Default props
     static defaultProps = {
         getAlbums: () => null,
-        albums: [],
+        albums: {},
         isLoading: false,
         error: false,
     };
