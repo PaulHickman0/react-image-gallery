@@ -28,7 +28,7 @@ export class Album extends Component {
     // Default props
     static defaultProps = {
         getAlbums: () => null,
-        albums: [],
+        albums: {},
         isLoading: false,
         error: false,
     };
@@ -57,7 +57,7 @@ export class Album extends Component {
 
     render() {
 
-        const { isLoading, error, match = {} } = this.props;
+        const { isLoading, error, match = {params: {}} } = this.props;
         const { albumId = 'Unknown' } = match.params;
         const images = this.getAlbumImages(albumId);
 
