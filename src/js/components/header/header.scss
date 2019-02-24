@@ -1,0 +1,94 @@
+@import '~scss/variables';
+
+.c-header__container {
+    padding: 14px 36px;
+    background: rgba(255,255,255,0.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+
+    @media only screen and (max-width: $mobile) {
+        padding: 6px 24px;
+    }
+}
+
+.c-header__logo {
+    font-family: 'Nunito', sans-serif;
+    position: relative;
+    transition-duration: 1s;
+    height: 80px;
+
+    @media only screen and (max-width: $mobile) {
+        height: auto;
+    }
+
+    img {
+        height: 80px;
+        position: relative;
+        transition-duration: 1s;
+
+        @media only screen and (max-width: $mobile) {
+            height: 34px;
+        }
+    }
+
+    span {
+        position: absolute;
+        color: #ccc;
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        left: 79px;
+        top: 28px;
+        font-weight: 600;
+        transition-duration: 1s;
+
+        @media only screen and (max-width: $mobile) {
+            display: none;
+        }
+    }
+}
+
+.c-header__navigation {
+    list-style: none;
+    
+    ul {
+        margin: 0;
+    }
+}
+
+.c-header__nav-item {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    padding: 2px 8px;
+
+    & + & {
+        margin-left: 24px;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -7px;
+        height: 2px;
+        left: 50%;
+        right: 50%;
+        background: $primary;
+        transition-duration: 0.3s;
+    }
+
+    &.is-active:before, &:hover:before {
+        left: 8px;
+        right: 8px;
+    }
+}

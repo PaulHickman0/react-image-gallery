@@ -1,0 +1,41 @@
+@import '~scss/variables';
+
+.c-section-banner {
+    color: white;
+    position: relative;
+    z-index:99;
+}
+
+.c-section-banner:not(.has-no-bottom) + * {
+    padding-top: 72px;
+}
+
+.c-section-banner__top, .c-section-banner__bottom  {
+    width: 100%;
+    height: 66px;
+    background: $primary;
+    position: absolute;
+    z-index: 9;
+}
+
+.c-section-banner__top {
+    top: 0;
+    transform: rotateZ(-2deg) translateY(-33px) scaleX(1.1);
+}
+
+
+.c-section-banner__bottom {
+    bottom: 0;
+    transform: rotateZ(-2deg) translateY(33px) scaleX(1.1);
+}
+
+.c-section-banner__content {
+    background: $primary;
+    position: relative;
+    z-index: 99;
+    padding: 48px 0;
+
+    @media only screen and (max-width: $mobile) {
+        padding: 12px 0;
+    }
+}
