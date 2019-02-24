@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import { getAlbums } from 'store/actions';
 import Album from 'components/album';
+import FormatLayout from 'components/format-layout';
+import ImageGrid from 'components/image-grid';
 import './home.scss';
 
 /**
@@ -35,7 +37,9 @@ export class Home extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.props.getAlbums();
+        if (!Object.keys(this.props.albums).length) {
+            this.props.getAlbums();
+        }
     }
 
     render() {
@@ -44,25 +48,25 @@ export class Home extends Component {
 
         return (
             <div className="home">
-                <h1>Image Gallery</h1>
-                <div className="home__gallery">
-                    {isLoading && (
-                        <div> LOADING </div>
-                    )}
-                    {error && (
-                        <div> ERROR </div>
-                    )}
-                    {!!Object.keys(albums).length && (
-                        Object.entries(albums).map(([albumId, images]) => (
-                            <Album
-                                key={`album_${albumId}`}
-                                id={albumId}
-                                images={images}
-                                thumbnail={images[0].thumbnailUrl}
-                            />
-                        ))
-                    )}
-                </div>
+                <FormatLayout>
+                    <h1>Image Gallery</h1>
+                    <ImageGrid
+                        className="home__gallery"
+                        isLoading={isLoading}
+                        error={error}
+                    >
+                        {!!Object.keys(albums).length && (
+                            Object.entries(albums).map(([albumId, images]) => (
+                                <Album
+                                    key={`album_${albumId}`}
+                                    id={albumId}
+                                    images={images}
+                                    thumbnail={images[0].thumbnailUrl}
+                                />
+                            ))
+                        )}
+                    </ImageGrid>
+                </FormatLayout>
             </div>
         );
     }

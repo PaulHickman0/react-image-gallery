@@ -1,0 +1,19 @@
+@import '~scss/variables';
+
+.c-image-grid {
+    padding: 12px 36px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 12px;
+    grid-row-gap: 18px;
+
+    @media only screen and (max-width: $tablet) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media only screen and (max-width: $mobile) {
+        grid-template-columns: 1fr;
+    }
+
+}

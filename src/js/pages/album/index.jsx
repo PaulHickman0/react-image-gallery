@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
+
 import { getAlbums } from 'store/actions';
+import FormatLayout from 'components/format-layout';
+import ImageGrid from 'components/image-grid';
 import './album.scss';
 
 /**
@@ -58,20 +62,26 @@ export class Album extends Component {
 
         return (
             <div className="album">
-                <h1>{`Album ${albumId}`}</h1>
-                <div className="album__list">
-                    {isLoading && (
-                        <div> LOADING </div>
-                    )}
-                    {error && (
-                        <div> ERROR </div>
-                    )}
-                    {!!images.length && (
-                        images.map(image => (
-                            <div>{image.id}</div>
-                        ))
-                    )}
-                </div>
+                <FormatLayout>
+                    <h1>{`Album ${albumId}`}</h1>
+                    <Link   
+                        to='/'
+                        className='o-link'
+                    >
+                        {`< Back to Albums`}
+                    </Link>
+                    <ImageGrid
+                        className="album__list"
+                        isLoading={isLoading}
+                        error={error}
+                    >
+                        {!!images.length && (
+                            images.map(image => (
+                                <div>{image.id}</div>
+                            ))
+                        )}
+                    </ImageGrid>
+                </FormatLayout>
             </div>
         );
     }

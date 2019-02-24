@@ -28,3 +28,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: 38px;
 }
+
+.o-link {
+    text-decoration: none;
+    color: #124391;
+    transition-duration: .3s;
+
+    &:hover {
+        color: #337acc;
+    }
+}
