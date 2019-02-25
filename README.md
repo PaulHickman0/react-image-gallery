@@ -1,9 +1,9 @@
 # react-image-gallery
-A simple react app for displaying images and albums
+A simple react app for displaying images and albums using redux
 
 ### Installing
 
-Install dependencies: `npm install`
+Install dependencies: `npm install` <br />
 Start dev server: `npm start`
 
 ## Tests
