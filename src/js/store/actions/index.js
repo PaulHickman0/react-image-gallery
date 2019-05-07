@@ -10,9 +10,8 @@ import { requestGET } from 'services/requests';
 export const getAlbums = () => {
     return {
         type: types.GET_ALBUMS,
-        promise: requestGET('https://jsonplaceholder.typicode.com/photos').then((images = []) => {
+        promise: requestGET('https://jsonplaceholder.typicode.com/photos?_limit=300').then((images = []) => {
             const albums = {};
-            images = images.slice(0, 300);
             images.forEach(({albumId = 'unknown', ...image}) => {
                 albums[albumId] = albums[albumId] || [];
                 albums[albumId].push(image);
